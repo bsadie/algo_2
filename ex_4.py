@@ -24,13 +24,13 @@ class aBST:
             return index
         # if self.Tree[index] is None:
 
-        if key < self.Tree[index] and not self.is_left_empty(index):
+        if key < self.Tree[index] and self.is_next_lvl(index) and not self.is_left_empty(index):
             return self._FindKeyIndex(self._get_leftchild_of(index), key)
-        if key < self.Tree[index] and self.is_left_empty(index):
+        if key < self.Tree[index] and self.is_next_lvl(index) and self.is_left_empty(index):
             return -self._get_leftchild_of(index)
-        if key > self.Tree[index] and not self.is_right_empty(index):
+        if key > self.Tree[index] and self.is_next_lvl(index) and not self.is_right_empty(index):
             return self._FindKeyIndex(self._get_rightchild_of(index), key)
-        if key > self.Tree[index] and self.is_right_empty(index):
+        if key > self.Tree[index] and self.is_next_lvl(index) and self.is_right_empty(index):
             return -self._get_rightchild_of(index)
 	
     def AddKey(self, key):

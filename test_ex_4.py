@@ -93,3 +93,9 @@ def test_gpt():
     # assert 1 == 0
     tree = aBST(1)
     assert tree.FindKeyIndex(3) == 0
+
+def test_iscl():
+    tree = aBST(0)
+    tree.AddKey(3)
+    assert tree.Tree[0] == 3
+    assert tree.AddKey(4) == -1
